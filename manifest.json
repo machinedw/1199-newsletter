@@ -2,7 +2,7 @@
   "name": "1199SEIU Connections Newsletter",
   "short_name": "1199 News",
   "description": "2026 Issue #1 - Retired Members Newsletter",
-  "start_url": "/1199-newsletter-jan-2026/",
+  "start_url": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FFFFFF",

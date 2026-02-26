@@ -1,14 +1,14 @@
 const CACHE_NAME = '1199-newsletter-v1';
 const ASSETS_TO_CACHE = [
-  '/1199-newsletter-jan-2026/',
-  '/1199-newsletter-jan-2026/index.html',
-  '/1199-newsletter-jan-2026/css/style.css',
-  '/1199-newsletter-jan-2026/js/app.js',
-  '/1199-newsletter-jan-2026/js/content.js',
-  '/1199-newsletter-jan-2026/manifest.json',
-  '/1199-newsletter-jan-2026/icon.png',
-  '/1199-newsletter-jan-2026/icon-192.png',
-  '/1199-newsletter-jan-2026/icon-512.png'
+  './',
+  './index.html',
+  './css/style.css',
+  './js/app.js',
+  './js/content.js',
+  './manifest.json',
+  './icon.png',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 // Install event - cache assets

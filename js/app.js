@@ -47,7 +47,7 @@ class NewsletterApp {
 
         // Register service worker
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/1199-newsletter-jan-2026/sw.js')
+            navigator.serviceWorker.register('./sw.js')
                 .then(() => console.log('Service Worker registered'))
                 .catch(err => console.log('Service Worker registration failed:', err));
         }

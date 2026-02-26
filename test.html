@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Newsletter Content</title>
+</head>
+<body>
+    <h1>Testing Newsletter Content</h1>
+    <div id="output"></div>
+    
+    <script src="js/content.js"></script>
+    <script>
+        const output = document.getElementById('output');
+        
+        // Test 1: Check if CHAPTERS loaded
+        output.innerHTML += '<h2>Chapters:</h2>';
+        output.innerHTML += '<pre>' + JSON.stringify(CHAPTERS, null, 2) + '</pre>';
+        
+        // Test 2: Check first lesson
+        output.innerHTML += '<h2>First Lesson:</h2>';
+        const lesson1 = getLessonByPage(1);
+        output.innerHTML += '<pre>' + JSON.stringify(lesson1, null, 2) + '</pre>';
+        
+        // Test 3: Check chapter info
+        output.innerHTML += '<h2>Chapter Info for Page 1:</h2>';
+        const info = getChapterInfo(1);
+        output.innerHTML += '<pre>' + JSON.stringify(info, null, 2) + '</pre>';
+        
+        // Test 4: Total lessons
+        output.innerHTML += '<h2>Total Lessons: ' + LESSONS.length + '</h2>';
+    </script>
+</body>
+</html>
