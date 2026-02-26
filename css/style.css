@@ -1,0 +1,382 @@
+/* ===================================
+   1199 NEWSLETTER APP - ANDROID OPTIMIZED
+   Galaxy A15 & iPhone Compatible
+   =================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --bg-color: #FFFFFF;
+    --text-color: #000000;
+    --header-bg: #FFFFFF;
+    --accent-color: #0066CC;
+    --border-color: #E0E0E0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    touch-action: pan-y;
+    overscroll-behavior: none;
+}
+
+/* ===================================
+   HEADER
+   =================================== */
+
+#app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.menu-button:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#app-title {
+    font-size: 18px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    color: var(--text-color);
+}
+
+.header-spacer {
+    width: 40px;
+}
+
+/* ===================================
+   CHAPTER MENU
+   =================================== */
+
+.chapter-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: var(--bg-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+    box-shadow: 2px 0 16px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.chapter-menu.active {
+    transform: translateX(0);
+}
+
+.menu-header {
+    position: sticky;
+    top: 0;
+    background: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 10;
+}
+
+.menu-close {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.menu-close:active {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.chapter-list {
+    padding: 8px;
+}
+
+.chapter-item {
+    padding: 16px;
+    margin-bottom: 4px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.chapter-item:active {
+    background-color: rgba(0, 102, 204, 0.05);
+    transform: scale(0.98);
+}
+
+.chapter-item.active {
+    background-color: rgba(0, 102, 204, 0.1);
+    border-color: var(--accent-color);
+}
+
+.chapter-item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.chapter-item-pages {
+    font-size: 13px;
+    color: #666666;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1500;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ===================================
+   PROGRESS BAR
+   =================================== */
+
+.progress-container {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 900;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+    border-radius: 0 2px 2px 0;
+}
+
+.chapter-info {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666666;
+    text-align: center;
+}
+
+/* ===================================
+   APP CONTAINER
+   =================================== */
+
+#app-container {
+    position: fixed;
+    top: calc(56px + 52px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.nav-zone {
+    position: fixed;
+    top: calc(56px + 52px);
+    bottom: 0;
+    width: 80px;
+    z-index: 100;
+    cursor: pointer;
+    user-select: none;
+}
+
+.nav-left {
+    left: 0;
+}
+
+.nav-right {
+    right: 0;
+}
+
+.lesson-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 50;
+    padding-bottom: 40px;
+}
+
+#lesson-text {
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    white-space: pre-wrap;
+    text-align: left;
+    padding: 0 10px;
+}
+
+#lesson-image-container {
+    width: 60%;
+    max-width: 350px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+#lesson-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+.fade-in {
+    animation: fadeIn 0.4s ease;
+}
+
+.fade-out {
+    animation: fadeOut 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* ===================================
+   ANDROID GALAXY A15 OPTIMIZATIONS
+   =================================== */
+
+@media (max-width: 428px) {
+    #app-container {
+        padding: 20px 16px;
+    }
+
+    #lesson-text {
+        font-size: 17px;
+        line-height: 1.7;
+        padding: 0 8px;
+        margin-bottom: 25px;
+    }
+
+    #lesson-image-container {
+        width: 70%;
+        max-width: 300px;
+    }
+
+    .nav-zone {
+        width: 60px;
+    }
+
+    .chapter-menu {
+        width: 260px;
+    }
+}
+
+/* Android-specific touch improvements */
+@supports (-webkit-touch-callout: none) {
+    body {
+        -webkit-user-select: none;
+    }
+
+    #lesson-text {
+        -webkit-user-select: text;
+    }
+}
+
+/* Prevent text selection on navigation zones */
+.nav-zone {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+/* Smooth scrolling for Android */
+#app-container {
+    scroll-behavior: smooth;
+}

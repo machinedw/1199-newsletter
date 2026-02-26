@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>1199SEIU Connections Newsletter</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="app-header">
+        <button id="menu-btn" class="menu-button" aria-label="Open menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <h1 id="app-title">1199 Newsletter</h1>
+        <div class="header-spacer"></div>
+    </header>
+
+    <div id="chapter-menu" class="chapter-menu">
+        <div class="menu-header">
+            <button id="menu-close-btn" class="menu-close" aria-label="Close menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <h2>Sections</h2>
+        </div>
+        <div id="chapter-list" class="chapter-list"></div>
+    </div>
+
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <div id="progress-bar-container" class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+        <div id="chapter-info" class="chapter-info"></div>
+    </div>
+
+    <div id="app-container" class="app-container">
+        <div id="nav-left" class="nav-zone nav-left" aria-label="Previous page"></div>
+        <div id="nav-right" class="nav-zone nav-right" aria-label="Next page"></div>
+        
+        <div id="lesson-container" class="lesson-container">
+            <div id="lesson-text" class="lesson-text"></div>
+            <div id="lesson-image-container" class="lesson-image-container">
+                <img id="lesson-image" class="lesson-image" alt="Newsletter illustration" />
+            </div>
+        </div>
+    </div>
+
+    <script src="js/content.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
