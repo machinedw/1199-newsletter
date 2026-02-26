@@ -105,6 +105,14 @@ class NewsletterApp {
         this.lessonContainer.classList.add('fade-out');
 
         setTimeout(() => {
+            // Scroll to top of page
+            const appContainer = document.getElementById('app-container');
+            if (appContainer) {
+                appContainer.scrollTop = 0;
+            }
+            // Also scroll window to top
+            window.scrollTo(0, 0);
+
             // Update content
             this.lessonText.textContent = lesson.text;
             this.lessonImage.src = lesson.image;
